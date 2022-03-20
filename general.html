@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmos de Ordenamiento</title>
+    <script type = "text/javascript">
+        //Funciones
+        //Crear un array aleatorio
+        function shuffle() 
+        {
+            var array = [6,8,9,16,18,13,7,17,1,14,20,12,5,3,11,10,4,19,15,2];
+            var tmp, current, top = array.length;
+
+            if(top) while(--top) 
+            {
+                current = Math.floor(Math.random() * (top + 1));
+                tmp = array[current];
+                array[current] = array[top];
+                array[top] = tmp;
+            }
+            return array
+        }
+        
+        // Funciones de Orden
+        // Insercion
+        function insertionSort( vector ) 
+        {
+            var cont = 0;
+            for (var i=1; i < vector.length; i++) 
+            {
+                var actual = vector[i];
+                cont ++;
+                var j = i-1;
+                cont ++;
+
+                while (j >= 0 && vector[j] > actual) 
+
+                    {
+                    vector[j + 1] = vector[j];
+                    cont ++;
+                    j--;
+                    cont ++;
+
+                    }
+
+                vector[j+1] = actual;
+                cont ++;
+            }
+            alert( "El numero de pasos es: " + cont )
+            document.getElementById("lblResult").innerHTML="Ordenamiento Insercion" + "<br>" + vector;
+        
+        }
+        // Seleccion
+        function selectionSort(vector) 
+        { 
+            let n = vector.length;
+            var cont = 1;
+
+            for(let i = 0; i < n; i++) 
+            {
+                let min = i;
+                cont = cont+1;
+
+                for(let j = i+1; j < n; j++)
+                {
+                    if(vector[j] < vector[min]) 
+                    {
+                    min=j;
+                    cont = cont+1;
+                    }
+                }
+                
+                if (min != i) 
+                {
+                let tmp = vector[i];
+                cont = cont+1;
+                vector[i] = vector[min];
+                cont = cont+1;
+                vector[min] = tmp;
+                cont = cont+1;      
+                }
+            }
+            
+            alert( "El numero de pasos es: " + cont )
+            document.getElementById("lblResult").innerHTML="Ordenamiento Seleccion" + "<br>" + vector;
+        
+        }
+        // Burbuja bidireccional o cocktail
+        function cocktailSort(vector) 
+        {
+            let left = 0;
+            var cont = 1;
+            let right = vector.length - 1;
+            var cont = cont + 1;
+            while (left < right) 
+            {
+                for (let i = left; i < right; i++) 
+                {
+                    if (vector[i] > vector[i + 1]) 
+                    {
+                        let tmp = vector[i];
+                        var cont = cont + 1;
+                        vector[i] = vector[i+1];
+                        var cont = cont + 1;
+                        vector[i+1] = tmp;
+                        var cont = cont + 1;
+                    };
+                }
+
+                right--;
+                var cont = cont + 1;
+
+                for (let i = right; i > left; i--) 
+                {
+                    if (vector[i] < vector[i - 1]) 
+                    {
+                        let tmp = vector[i];
+                        var cont = cont + 1;
+                        vector[i] = vector[i-1];
+                        var cont = cont + 1;
+                        vector[i-1] = tmp;
+                        var cont = cont + 1;
+                    }
+                }
+            }
+            alert( "El numero de pasos es: " + cont )
+            document.getElementById("lblResult").innerHTML="Ordenamiento Bidireccional" + "<br>" + vector;
+        }
+        // Burbuja
+        function bubbleSort(vector) 
+        {
+        
+        let swapped = true;
+        cont = 0
+        
+        do {
+            swapped = false;
+            cont = cont + 1
+            for (let j = 0; j < vector.length; j++) 
+                {
+
+                if (vector[j] > vector[j + 1])
+                    {
+                    let temp = vector[j];
+                    cont = cont + 1
+                    vector[j] = vector[j + 1];
+                    cont = cont + 1
+                    vector[j + 1] = temp;
+                    cont = cont + 1
+                    swapped = true;
+                    cont = cont + 1
+                    }
+
+                }
+
+           } while (swapped);
+        alert( "El numero de pasos es: " + cont )
+        document.getElementById("lblResult").innerHTML="Ordenamiento Burbuja" + "<br>" + vector;
+        }
+        // Peine
+        function combSort(vector)
+        {
+            function is_vector_sorted(vector) 
+            {
+            var sorted = true;
+                for (var i = 0; i <vector.length - 1; i++) 
+                    {
+                    if (vector[i] >vector[i + 1]) 
+                        {
+                        sorted = false;
+                        break;
+                        }
+                    }
+            return sorted;
+            }
+            var cont = 0;
+            var iteration_count = 0;
+            var cont = cont + 1;
+            var gap =vector.length - 2;
+            var cont = cont + 1;
+            var decrease_factor = 1.25;
+            var cont = cont + 1;
+ 
+            while (!is_vector_sorted(vector)) 
+            {
+                if (iteration_count > 0)
+                    
+                    gap = (gap == 1) ? gap : Math.floor(gap / decrease_factor);
+                    cont = cont + 1;
+            
+                var front = 0;
+                cont = cont + 1;
+                var back = gap;
+                cont = cont + 1;
+
+                while (back <=vector.length - 1) 
+                    {
+
+                    if (vector[front] >vector[back]) 
+                        {
+                        var temp =vector[front];
+                        cont = cont + 1;
+                        vector[front] =vector[back];
+                        cont = cont + 1;
+                        vector[back] = temp;
+                        cont = cont + 1;
+                        }
+            
+                    front += 1;
+                    cont = cont + 1;
+                    back += 1;
+                    cont = cont + 1;
+                }
+                iteration_count += 1;
+                cont = cont + 1;
+            }
+            alert( "El numero de pasos es: " + cont )
+            document.getElementById("lblResult").innerHTML="Ordenamiento Peine" + "<br>" + vector;
+        }
+        // Shell
+        function shellSort(vector)
+        {
+            var increment = vector.length / 2;
+            var cont = 1;
+
+            while (increment > 0) 
+            {
+                for (i = increment; i < vector.length; i++) 
+                {
+                    var j = i;
+                    cont++;                     
+                    var temp = vector[i];
+                    cont++;
+
+                    while (j >= increment && vector[j-increment] > temp) 
+                    {
+                        vector[j] = vector[j-increment];
+                        cont++;
+                        j = j - increment;
+                        cont++;
+                    }
+            
+                    vector[j] = temp;
+                    cont++;
+                }
+            
+                if (increment == 2) 
+                {
+                    increment = 1;
+                    cont++;
+                } 
+
+                else 
+                {
+                    increment = parseInt(increment*5 / 11);
+                    cont++;
+                }
+            }
+            alert( "El numero de pasos es: " + cont )
+            document.getElementById("lblResult").innerHTML="Ordenamiento Shell" + "<br>" + vector;
+        }
+        // Escribir array aleatorio
+        
+        document.write("Arreglo a ordenar" +"<br>")
+        document.write(shuffle())
+
+        
+    </script>
+</head>
+<body>
+    <!--Ordenamientos-->
+
+    <h4>Ordenamiento de un vector</h4>
+    <h4>Elije el tipo de ordenamiento</h4>
+
+    <!--Boton-->
+    <p>
+        <button type = "button" onclick="cocktailSort(shuffle())"> Bidireccional</button>
+        <button type = "button" onclick="bubbleSort(shuffle())">Burbuja</button>
+        <button type = "button" onclick="selectionSort(shuffle())">Seleccion</button>
+        <button type = "button" onclick="insertionSort(shuffle())">Insercion</button>
+        <button type = "button" onclick="combSort(shuffle())">Peine</button>
+        <button type = "button" onclick="shellSort(shuffle())">Shell</button>
+    </p>
+    <p id = "lblResult"></p>
+</body>
+</html>
