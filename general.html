@@ -261,6 +261,43 @@
             alert( "El numero de pasos es: " + cont )
             document.getElementById("lblResult").innerHTML="Ordenamiento Shell" + "<br>" + vector;
         }
+        // Gnome
+        function gnomeSort(arr)
+            {
+                let index = 0;
+                let n = arr.length
+                var cont = 2;
+
+                while (index < n) 
+                {
+                    if (index == 0){
+                        index++;
+                        cont = cont +1; 
+                    }
+                        
+
+                    if (arr[index] >= arr[index - 1]){   
+                        index++;
+                        cont = cont +1; 
+                    }
+                        
+                    else 
+                    {
+                        let temp = 0;
+                        cont = cont +1; 
+                        temp = arr[index];
+                        cont = cont +1; 
+                        arr[index] = arr[index - 1];
+                        cont = cont +1; 
+                        arr[index - 1] = temp;
+                        cont = cont +1; 
+                        index--;
+                        cont = cont +1; 
+                    }
+                }
+                alert( "El numero de pasos es: " + cont )
+                document.getElementById("lblResult").innerHTML="Ordenamiento Gnome" + "<br>" + arr;
+            }
         // Escribir array aleatorio
         
         document.write("Arreglo a ordenar" +"<br>")
@@ -283,6 +320,7 @@
         <button type = "button" onclick="insertionSort(shuffle())">Insercion</button>
         <button type = "button" onclick="combSort(shuffle())">Peine</button>
         <button type = "button" onclick="shellSort(shuffle())">Shell</button>
+        <button type = "button" onclick="gnomeSort(shuffle())">Gnome</button>
     </p>
     <p id = "lblResult"></p>
 </body>
