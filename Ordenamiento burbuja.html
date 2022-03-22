@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenamiento burbuja </title>
+    <script type="text/javascript">
+        
+        //Funcion
+        function bubbleSort( vector ) 
+        {
+        let swapped = true;
+        cont = 0
+        
+        do {
+            swapped = false;
+            cont = cont + 1
+            for (let j = 0; j < vector.length; j++) 
+                {
+
+                if (vector[j] > vector[j + 1])
+                    {
+                    let temp = vector[j];
+                    cont = cont + 1
+                    vector[j] = vector[j + 1];
+                    cont = cont + 1
+                    vector[j + 1] = temp;
+                    cont = cont + 1
+                    swapped = true;
+                    cont = cont + 1
+                    }
+
+                }
+
+           } while (swapped);
+           
+        document.write ("El numero de pasos es: " + cont +"<br>")
+        return vector;
+        }
+
+        //Llamar funcion
+        var vector = [6,8,9,16,18,13,7,17,1,14,20,12,5,3,11,10,4,19,15,2];
+        document.write("Ordenamiento burbuja"+"<br>")
+        document.write(bubbleSort(vector))
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

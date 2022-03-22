@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gnome</title>
+    <script type ="text/javascript">
+
+            function gnomeSort(arr)
+            {
+                let index = 0;
+                let n = arr.length
+                var cont = 2;
+
+                while (index < n) 
+                {
+                    if (index == 0){
+                        index++;
+                        cont = cont +1; 
+                    }
+                        
+
+                    if (arr[index] >= arr[index - 1]){   
+                        index++;
+                        cont = cont +1; 
+                    }
+                        
+                    else 
+                    {
+                        let temp = 0;
+                        cont = cont +1; 
+                        temp = arr[index];
+                        cont = cont +1; 
+                        arr[index] = arr[index - 1];
+                        cont = cont +1; 
+                        arr[index - 1] = temp;
+                        cont = cont +1; 
+                        index--;
+                        cont = cont +1; 
+                    }
+                }
+                document.write ("El numero de pasos es: " + cont +"<br>")
+                return arr
+            }
+         
+
+        //Llamar funcion
+        var vector = [6,8,9,16,18,13,7,17,1,14,20,12,5,3,11,10,4,19,15,2];
+        document.write("Ordamiento por insercion"+"<br>")
+        document.write(gnomeSort(vector))
+                   
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenamiento burbuja </title>
+    <script type="text/javascript">
+        
+        //Funcion
+        function cocktailSort(vector) 
+        {
+            let left = 0;
+            var cont = 1;   
+            let right = vector.length - 1;
+            var cont = cont + 1;
+            while (left < right) 
+            {
+                for (let i = left; i < right; i++) 
+                {
+                    if (vector[i] > vector[i + 1]) 
+                    {
+                        let tmp = vector[i];
+                        var cont = cont + 1;
+                        vector[i] = vector[i+1];
+                        var cont = cont + 1;
+                        vector[i+1] = tmp;
+                        var cont = cont + 1;
+                    };
+                }
+
+                right--;
+                var cont = cont + 1;
+
+                for (let i = right; i > left; i--) 
+                {
+                    if (vector[i] < vector[i - 1]) 
+                    {
+                        let tmp = vector[i];
+                        var cont = cont + 1;
+                        vector[i] = vector[i-1];
+                        var cont = cont + 1;
+                        vector[i-1] = tmp;
+                        var cont = cont + 1;
+                    }
+                }
+            }
+            document.write ("El numero de pasos es: " + cont +"<br>")
+            return vector
+        }
+        
+
+        //Llamar funcion
+        var vector = [6,8,9,16,18,13,7,17,1,14,20,12,5,3,11,10,4,19,15,2];
+        document.write("Ordenamiento Cocktail"+"<br>")
+        document.write(cocktailSort(vector))
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

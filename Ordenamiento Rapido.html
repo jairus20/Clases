@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenamiento rapido</title>
+    <script type ="text/javascript">
+        
+        //Funcion
+        //Funcion
+        function quickSort(array)
+        {
+            var cont = 0;
+            var pivot = array[0];
+            cont=cont+1;
+            var left = [];
+            cont=cont+1;
+            var right = [];
+            cont=cont+1;
+
+            if (array.length <= 1) 
+            {
+                return array;
+            }
+
+            for (var i = 1; i < array.length; i++) 
+            {
+                array[i] < pivot ? left.push(array[i]) : right.push(array[i]);
+                cont=cont+1;
+            }
+            
+            var vector = quickSort(left).concat(pivot, quickSort(right));
+            document.write( "El numero de pasos es: " + cont +"<br>")
+            return vector
+        }
+
+        //Llamar funcion
+        var vector = [6,8,9,16,18,13,7,17,1,14,20,12,5,3,11,10,4,19,15,2];
+        document.write("Ordamiento Rapido"+"<br>")
+        document.write(quickSort(vector))
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

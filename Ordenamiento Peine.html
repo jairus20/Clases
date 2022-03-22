@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenamiento peine </title>
+    <script type="text/javascript">
+        
+        //Funcion
+        function combSort(vector)
+        {
+            function is_vector_sorted(vector) 
+            {
+            var sorted = true;
+                for (var i = 0; i <vector.length - 1; i++) 
+                    {
+                    if (vector[i] >vector[i + 1]) 
+                        {
+                        sorted = false;
+                        break;
+                        }
+                    }
+            return sorted;
+            }
+            var cont = 0;
+            var iteration_count = 0;
+            var cont = cont + 1;
+            var gap =vector.length - 2;
+            var cont = cont + 1;
+            var decrease_factor = 1.25;
+            var cont = cont + 1;
+ 
+            while (!is_vector_sorted(vector)) 
+            {
+                if (iteration_count > 0)
+                    
+                    gap = (gap == 1) ? gap : Math.floor(gap / decrease_factor);
+                    cont = cont + 1;
+            
+                var front = 0;
+                cont = cont + 1;
+                var back = gap;
+                cont = cont + 1;
+
+                while (back <=vector.length - 1) 
+                    {
+
+                    if (vector[front] >vector[back]) 
+                        {
+                        var temp =vector[front];
+                        cont = cont + 1;
+                        vector[front] =vector[back];
+                        cont = cont + 1;
+                        vector[back] = temp;
+                        cont = cont + 1;
+                        }
+            
+                    front += 1;
+                    cont = cont + 1;
+                    back += 1;
+                    cont = cont + 1;
+                }
+                iteration_count += 1;
+                cont = cont + 1;
+            }
+            document.write ("El numero de pasos es: " + cont +"<br>")
+            return vector
+        }
+
+
+        //Llamar funcion
+        var vector = [6,8,9,16,18,13,7,17,1,14,20,12,5,3,11,10,4,19,15,2];
+        document.write("Ordamiento peine"+"<br>")
+        document.write(combSort(vector))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

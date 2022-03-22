@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenamiento por Seleccion</title>
+    <script type ="text/javascript">
+        
+        //Funcion
+        function selectionSort(vector) 
+        { 
+            let n = vector.length;
+            var cont = 1;
+
+            for(let i = 0; i < n; i++) 
+            {
+                let min = i;
+                cont = cont+1;
+
+                for(let j = i+1; j < n; j++)
+                {
+                    if(vector[j] < vector[min]) 
+                    {
+                    min=j;
+                    cont = cont+1;
+                    }
+                }
+                
+                if (min != i) 
+                {
+                let tmp = vector[i];
+                cont = cont+1;
+                vector[i] = vector[min];
+                cont = cont+1;
+                vector[min] = tmp;
+                cont = cont+1;      
+                }
+            }
+            document.write ("El numero de pasos es: " + cont +"<br>")
+            return vector;
+        }
+
+        //Llamar funcion
+        var vector = [6,8,9,16,18,13,7,17,1,14,20,12,5,3,11,10,4,19,15,2];
+        document.write("Ordamiento por Seleccion"+"<br>")
+        document.write(selectionSort (vector))
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
